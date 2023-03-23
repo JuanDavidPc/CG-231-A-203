@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Juan David Paez 6000543</title>
+		<style>
+			body { margin: 0; }
+		</style>
+	</head>
+	<body>
+		<script type="module">
+			import * as THREE from 'https://unpkg.com/three/build/three.module.js';
+
+        // Configuración de la escena
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+     // Crear los objetos BoxGeometry
+     const geometry1 = new THREE.BoxGeometry(1, 1, 1);
+     const material1 = new THREE.MeshBasicMaterial({ color: 0xff0000 });//color rojo
+     const cube1 = new THREE.Mesh(geometry1, material1);
+     scene.add(cube1);
+
+     const geometry2 = new THREE.BoxGeometry(1, 1, 1);
+     const material2 = new THREE.MeshPhongMaterial({ color: 0xf00fff });//color violeta
+     const cube2 = new THREE.Mesh(geometry2, material2);
+     cube2.position.set(-3, 0, 0);
+     scene.add(cube2);
+
+     const geometry3 = new THREE.BoxGeometry(1, 1, 1);
+     const material3 = new THREE.MeshStandardMaterial({ color: 0xf0f00f });// color amarillo
+     const cube3 = new THREE.Mesh(geometry3, material3);
+     cube3.position.set(3, 0, 0);
+     scene.add(cube3);
+
+     // Agregar luz ambiental y direccional
+     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+     scene.add(ambientLight);
+
+     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+     directionalLight.position.set(1, 1, 1);
+     scene.add(directionalLight);
+
+     // Configurar la posición y la orientación de la cámara
+     camera.position.z = 5;
+
+     // Animar los objetos en rotación continua
+     function animate() {
+       requestAnimationFrame(animate);
+
+       cube1.rotation.x += 0.01;
+       cube1.rotation.y += 0.01;
+
+       cube2.rotation.x -= 0.02;
+       cube2.rotation.y -= 0.02;
+
+      cube3.rotation.x += 0.03;
+      cube3.rotation.y += 0.03;
+
+      renderer.render(scene, camera);
+}
+animate();
+</script>
+</body>
+</html>
