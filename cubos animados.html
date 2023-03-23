@@ -18,25 +18,25 @@
       renderer.setSize(window.innerWidth, window.innerHeight);
       document.body.appendChild(renderer.domElement);
 
-     // Crear los objetos BoxGeometry
+     // Crear los objetos BoxGeometry retomado del ejercicio presentado al final de la página https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene 
      const geometry1 = new THREE.BoxGeometry(1, 1, 1);
      const material1 = new THREE.MeshBasicMaterial({ color: 0xff0000 });//color rojo
      const cube1 = new THREE.Mesh(geometry1, material1);
      scene.add(cube1);
 
-     const geometry2 = new THREE.BoxGeometry(1, 1, 1);
+     const geometry2 = new THREE.BoxGeometry(2, 3, 3);
      const material2 = new THREE.MeshPhongMaterial({ color: 0xf00fff });//color violeta
      const cube2 = new THREE.Mesh(geometry2, material2);
      cube2.position.set(-3, 0, 0);
      scene.add(cube2);
 
-     const geometry3 = new THREE.BoxGeometry(1, 1, 1);
+     const geometry3 = new THREE.BoxGeometry(1, 2, 2);
      const material3 = new THREE.MeshStandardMaterial({ color: 0xf0f00f });// color amarillo
      const cube3 = new THREE.Mesh(geometry3, material3);
      cube3.position.set(3, 0, 0);
      scene.add(cube3);
 
-     // Agregar luz ambiental y direccional
+     // agregar luz ambiental y direccional codigo buscado y ayudado por chat gpt
      const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
      scene.add(ambientLight);
 
